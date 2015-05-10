@@ -24,7 +24,7 @@ def get_street_view(status):
     url = "https://maps.googleapis.com/maps/api/streetview?size={0}x{1}".format(x,y)
 
     if status.is_exact_location():
-        url += "&location={0}".format(*status.location())
+        url += "&location={0},{1}".format(*status.location())
     else:
         url += "&location={0}".format(status.location())
 
