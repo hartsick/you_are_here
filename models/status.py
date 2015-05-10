@@ -55,6 +55,13 @@ class Status(TwitterObject):
         return user and user.is_bot()
 
 
+    def location(self):
+        if self.data['coordinates']:
+            return self.data['coordinates']['coordinates']
+        else:
+            return None
+
+
     #############################
     # Bot-specific methods below
     #############################

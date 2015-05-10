@@ -9,24 +9,28 @@ def run_user_stream():
     #   -- for detecting user interaction with bot
     while True:
         try:
+            print "Starting stream..."
             stream = UserStreamer(*twitter_cred)
-            stream.user(**{'with': 'user'})
+            print stream.user(**{'with': 'user'})
         except Exception as e:
             logging.exception(e)
+            sleep(60)
 
-        sleep(30)
+        sleep(60)
 
 if __name__ == "__main__":
 
-    p1 = Process(target=run_user_stream)
+    run_user_stream()
 
-    # TODO: add periodic random tweets
-    processes = [
-        p1
-    ]
+    # p1 = Process(target=run_user_stream)
 
-    for process in processes:
-        process.start()
+    # # TODO: add periodic random tweets
+    # processes = [
+    #     p1
+    # ]
 
-    for process in processes:
-        process.join()
+    # for process in processes:
+    #     process.start()
+
+    # for process in processes:
+    #     process.join()
