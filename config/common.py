@@ -7,4 +7,9 @@ twitter_cred = [
     os.environ.get('YOUAREHERE_ACCESS_TOKEN_SECRET')
 ]
 
-# BOT_ID = 2951110814
+BOT_ID = 3190153903
+
+tweet_locally = os.environ.get('TWEET_LOCAL', None)
+
+# BOT-SPECIFIC CONFIG
+follow_back = False
