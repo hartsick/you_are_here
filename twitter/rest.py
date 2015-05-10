@@ -45,10 +45,9 @@ class Tweeta(object):
     def reply_to_status(self, status):
         if status.sender_not_self():
             params = { 'in_reply_to_status_id': status.id }
-            # TODO: Add place_id, lat & lng?
 
             if status.location():
-                img_path = get_street_view(*status.location())
+                img_path = get_street_view(status)
                 img_id = self.upload_media(img_path)
 
                 params['media_ids'] = [img_id]

@@ -54,10 +54,19 @@ class Status(TwitterObject):
 
         return user and user.is_bot()
 
+    def is_exact_location(self):
+        if self.data['coordinates']:
+            return True
+        else:
+            return False
 
     def location(self):
+        ''' Returns lng & lat if available, otherwise returns city name'''
         if self.data['coordinates']:
-            return self.data['coordinates']['coordinates']
+            # Put into correct order for Google Street View API
+            return reversed(self.data['coordinates']['coordinates'])
+        elif self.data['place']:
+            return self.data['place']['full_name']
         else:
             return None
 

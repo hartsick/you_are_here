@@ -13,17 +13,22 @@ def gen_response(status):
 
     return text
 
-def get_street_view(lng, lat):
+def get_street_view(status):
     # Image opts
     x = 600
     y = 400
-    fov = 90
-    heading = 235
-    pitch = 10
+    # fov = 90
+    heading = 280
+    pitch = -70
 
     url = "https://maps.googleapis.com/maps/api/streetview?size={0}x{1}".format(x,y)
-    url += "&location={0},{1}".format(lat, lng)
-    url += "&fov={0}&heading={1}&pitch={2}".format(fov, heading, pitch)
+
+    if status.is_exact_location():
+        url += "&location={0}".format(*status.location())
+    else:
+        url += "&location={0}".format(status.location())
+
+    url += "&heading={0}&pitch={1}".format(heading, pitch)
 
     print "Getting image from {0}".format(url)
 
