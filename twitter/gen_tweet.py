@@ -7,9 +7,9 @@ def gen_response(status):
         if status.location():
             text = "Never fear, you are here:"
         else:
-            text = "Location is screwed up. Maybe just look around?"
+            text = "¯\_(ツ)_/¯ . Maybe verify location is enabled for tweets and ask again https://twitter.com/youareherebot/status/597616083386781696? Or, uh, just look around?"
     else:
-        text = "You're doing it wrong."
+        text = "You're doing it wrong. Try checking out this tweet for directions: https://twitter.com/youareherebot/status/597616083386781696"
 
     return text
 
