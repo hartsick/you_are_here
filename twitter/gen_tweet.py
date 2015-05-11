@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from botutils import images as Image
 
 def gen_response(status):
@@ -7,7 +10,7 @@ def gen_response(status):
         if status.location():
             text = "Never fear, you are here:"
         else:
-            text = "Maybe verify location is enabled for tweets and ask again? https://twitter.com/youareherebot/status/597616083386781696 Or, uh, just lookaround?"
+            text = "¯\_(ツ)_/¯ . Maybe verify location is enabled for tweets and ask again https://twitter.com/youareherebot/status/597616083386781696? Or, uh, just look around?"
     else:
         text = "You're doing it wrong. Try checking out this tweet for directions: https://twitter.com/youareherebot/status/597616083386781696"
 
